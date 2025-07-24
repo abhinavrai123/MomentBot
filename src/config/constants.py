@@ -1,40 +1,46 @@
-# constants.py
+from enum import Enum
 
 # --- Energy Levels ---
+class EnergyLevel(Enum):
+    HIGH = "++"
+    MEDIUM = "+"
+    NEUTRAL = "0"
+    LOW = "-"
+    DRAINED = "--"
+
 ENERGY_LEVELS = {
-    "++": 2,
-    "+": 1,
-    "0": 0,
-    "-": -1,
-    "--": -2,
+    EnergyLevel.HIGH.value: 2,
+    EnergyLevel.MEDIUM.value: 1,
+    EnergyLevel.NEUTRAL.value: 0,
+    EnergyLevel.LOW.value: -1,
+    EnergyLevel.DRAINED.value: -2,
 }
 
-ENERGY_LEVEL_SYMBOLS = {
-    2: "++",
-    1: "+",
-    0: "0",
-    -1: "-",
-    -2: "--"
-}
-
-# --- Cognitive States ---
-COGNITIVE_STATES = ["Act", "Obs", "Crt", "Mtn"]
+ENERGY_LEVEL_SYMBOLS = {v: k for k, v in ENERGY_LEVELS.items()}
 
 # --- Log Types ---
-LOG_TYPES = ["log", "mood", "acmp", "thank"]  # <-- "acc" changed to "acmp"
+class LogType(Enum):
+    MOOD = "mood"
+    COGNITIVE = "cognitive_state"
+    WIN = "win"
+    LEARNING = "need_learning"
+    GRATITUDE = "gratitude"
 
-# --- Accomplishment Types ---
-ACMP_TYPES = ["win", "learn"]  # renamed for consistency
+# --- Cognitive States ---
+class CognitiveState(Enum):
+    ACT = "act"
+    OBSERVE = "obs"
+    CREATE = "crt"
+    MOTION = "mtn"
 
-# --- Time Constants ---
+# --- Constants ---
 RESET_HOUR = 20  # 8 PM
-DEFAULT_TIMEZONE = "UTC"  # Adjustable if needed
+DEFAULT_TIMEZONE = "UTC"
 
-# --- Swing Logic ---
-MOOD_LOG_TYPE = "mood"  # Only mood entries are used for swings
 DEFAULT_ENERGY = 0
+MOOD_LOG_TYPE = LogType.MOOD.value  # used in mood swing tracking
 
-# --- Emojis (Optional UI enhancement) ---
+# --- Emoji UI (optional) ---
 EMOJI_MAP = {
     "++": "🌞",
     "+": "🙂",
@@ -42,7 +48,10 @@ EMOJI_MAP = {
     "-": "😟",
     "--": "🌧️",
     "win": "🏆",
-    "learn": "📘"
+    "need_learning": "📘",
+    "gratitude": "🙏",
+    "mood": "🌀",
+    "cognitive_state": "🧠",
 }
 
 # --- Swing Summary Format ---

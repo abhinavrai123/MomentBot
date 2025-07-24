@@ -1,0 +1,13 @@
+| Command                                        | Purpose                                               | Usage Example                                        |
+| ---------------------------------------------- | ----------------------------------------------------- | ---------------------------------------------------- |
+| `alembic init <dir>`                           | Initialize Alembic environment (one-time setup)       | `alembic init alembic`                               |
+| `alembic revision -m "message"`                | Create an empty new migration script (manual edits)   | `alembic revision -m "add users"`                    |
+| `alembic revision --autogenerate -m "message"` | Auto-generate migration script based on model changes | `alembic revision --autogenerate -m "update schema"` |
+| `alembic upgrade head`                         | Apply all pending migrations                          | `alembic upgrade head`                               |
+| `alembic upgrade <revision>`                   | Apply migrations up to a specific revision            | `alembic upgrade abc123`                             |
+| `alembic downgrade -1`                         | Roll back the last migration                          | `alembic downgrade -1`                               |
+| `alembic downgrade <revision>`                 | Downgrade to a specific revision                      | `alembic downgrade abc123`                           |
+| `alembic current`                              | Show the current DB migration state                   | `alembic current`                                    |
+| `alembic history`                              | Show all past and available revisions                 | `alembic history`                                    |
+| `alembic show <revision>`                      | Show details of a specific revision                   | `alembic show abc123`                                |
+| `alembic stamp head`                           | Mark DB as up-to-date **without applying** migrations | `alembic stamp head`                                 |

@@ -21,7 +21,7 @@ class LogEntry(Base):
     log_day = Column(Date, nullable=False, server_default=func.current_date())
     embedding = Column(BLOB, nullable=True)
     metadta = Column(JSON, nullable=True)
-    mood_color = Column(String, nullable=True)  # test column for Alembic
+    evnttrigger = Column(String, nullable=True)
 
 class MoodSwing(Base):
     __tablename__ = "swing_table"
