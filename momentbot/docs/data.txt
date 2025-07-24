@@ -1,0 +1,6 @@
+🛠 Notes
+log_day is auto-generated based on log_time using SQLite's GENERATED expression.
+tags and log_ids are stored as comma-separated strings for now (SQLite doesn't support array types natively).
+embedding is a binary BLOB placeholder if you store vector encodings later (or can be base64-encoded string).
+All times are assumed to be stored in UTC. Always use datetime.utcnow() in Python.
+
