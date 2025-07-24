@@ -12,7 +12,7 @@ class LogEntry(Base):
     user_id = Column(Integer, nullable=False)
     log_type = Column(String, nullable=False)             # log, mood, acc, thank, etc.
     cog_state = Column(String, nullable=True)             # Act, Obs, Crt, Mtn
-    text = Column(Text, nullable=False)
+    comment = Column(Text, nullable=False)
     energy_score = Column(Integer, nullable=True)         # -2 to +2
     emotion_label = Column(String, nullable=True)
     archetype = Column(String, nullable=True)

@@ -10,4 +10,4 @@
 | `alembic current`                              | Show the current DB migration state                   | `alembic current`                                    |
 | `alembic history`                              | Show all past and available revisions                 | `alembic history`                                    |
 | `alembic show <revision>`                      | Show details of a specific revision                   | `alembic show abc123`                                |
-| `alembic stamp head`                           | Mark DB as up-to-date **without applying** migrations | `alembic stamp head`                                 |
+| `alembic stamp head`                           | Mark DB as up-to-date **without applying** migrations | `alembic stamp head`
