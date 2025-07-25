@@ -1,4 +1,5 @@
 from enum import Enum
+import pytz
 
 # --- Energy Levels ---
 class EnergyLevel(Enum):
@@ -78,3 +79,6 @@ class DailyRoutine(Enum):
 
     def label(self):
         return self.value[2]
+
+LOCAL_TIMEZONE = pytz.timezone("Asia/Kolkata")
+WIN_GRATITUDE_CHECK_TIMES = ["12:00", "16:00"]

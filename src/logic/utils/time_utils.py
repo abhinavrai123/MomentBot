@@ -1,8 +1,7 @@
 from datetime import datetime, time
 import pytz
-from src.config.constants import DailyRoutine
+from src.config.constants import DailyRoutine, LOCAL_TIMEZONE
 
-LOCAL_TIMEZONE = pytz.timezone("Asia/Kolkata")
 
 def get_daily_routine_index(timestamp: datetime) -> int:
     # Ensure datetime is localized
