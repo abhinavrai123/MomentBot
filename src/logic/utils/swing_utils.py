@@ -43,7 +43,6 @@ def detect_swings(logs):
 
     return swings
 
-
 def compute_adjusted_volatility(swing_logs):
     total_weighted_energy = 0
     total_transitions = len(swing_logs) - 1
@@ -53,11 +52,9 @@ def compute_adjusted_volatility(swing_logs):
     for i in range(len(swing_logs) - 1):
         a, b = swing_logs[i], swing_logs[i + 1]
 
-        # Convert both to same tz-aware datetime
         a_time = a.log_time
         b_time = b.log_time
 
-        # If naive, localize them to LOCAL_TIMEZONE
         if a_time.tzinfo is None:
             a_time = a_time.replace(tzinfo=LOCAL_TIMEZONE)
         if b_time.tzinfo is None:
@@ -67,7 +64,7 @@ def compute_adjusted_volatility(swing_logs):
         energy = abs(ENERGY_WEIGHTS.get(a.energy_score, 0))
         total_weighted_energy += energy * minutes
 
-            return round((total_weighted_energy / 60) * 100, 2)
+    return round(total_weighted_energy, 2)
 
 def determine_direction(energy_path):
     ups = sum(1 for e in energy_path if "+" in e)
