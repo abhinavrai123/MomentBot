@@ -7,7 +7,8 @@ from src.logic.utils.moment_utils import (
     build_reply_keyboard, clean_text_input, get_current_timestamp
 )
 from src.data.service import store_log_entry, store_journal_entry
-# from src.logic.utils.swing_utils import track_mood_swing
+from sqlalchemy.orm import Session
+
 from datetime import datetime
 
 # Flow identifiers
@@ -149,6 +150,7 @@ async def store_and_finalize(update: Update, context: ContextTypes.DEFAULT_TYPE)
 async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Logging canceled.")
     return ConversationHandler.END
+
 
 # --- REGISTER ---
 

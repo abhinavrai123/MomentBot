@@ -1,9 +1,10 @@
 # src/data/models.py
 
-from sqlalchemy import Column, String, Integer, Text, DateTime, Date, ForeignKey
+from sqlalchemy import Column, String, Integer, Text, DateTime, Date, ForeignKey, Float, Boolean
 from sqlalchemy.types import JSON, BLOB
 from sqlalchemy.sql import func
 from .database import Base
+from datetime import datetime
 
 class LogEntry(Base):
     __tablename__ = "log_table"
@@ -29,13 +30,22 @@ class MoodSwing(Base):
 
     swing_id = Column(String, primary_key=True)
     user_id = Column(Integer, nullable=False)
+
     start_time = Column(DateTime(timezone=True), nullable=False)
     end_time = Column(DateTime(timezone=True), nullable=False)
     duration_minutes = Column(Integer, nullable=False)
-    energy_path = Column(Text, nullable=False)             # e.g., 0 -> + -> - -> 0
-    swing_intensity = Column(Integer, nullable=True)       # max |energy_score|
-    swing_volatility = Column(Integer, nullable=True)      # number of non-zero transitions
-    log_ids = Column(String, nullable=True)                # comma-separated log_ids
+
+    energy_path = Column(Text, nullable=False)
+    swing_intensity = Column(Integer, nullable=True)
+    swing_volatility = Column(Integer, nullable=True)
+    adjusted_volatility = Column(Float, nullable=True)
+    avg_energy_level = Column(Float, nullable=True)
+    direction = Column(String, nullable=True)
+    num_transitions = Column(Integer, nullable=True)
+    recovered_to_zero = Column(Boolean, nullable=True)
+
+    log_ids = Column(String, nullable=True)
     tags = Column(String, nullable=True)
     summary = Column(Text, nullable=True)
+    created_at = Column(DateTime(timezone=True), nullable=False, default=datetime.utcnow)
 # ORM models
