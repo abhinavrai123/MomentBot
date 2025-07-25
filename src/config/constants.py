@@ -60,3 +60,21 @@ EMOJI_MAP = {
 
 # --- Swing Summary Format ---
 SWING_SUMMARY_TEMPLATE = "{index}. {path} (lasted {duration})"
+
+# --- Daily Routine ---
+class DailyRoutine(Enum):
+    FOUNDATION = ("05:00", "08:00", "Foundation")
+    LAUNCH = ("08:00", "10:00", "Launch")
+    FOCUSED_AND_RESTED = ("10:00", "14:00", "Focused and Rested")
+    AFTERNOON_FLOW = ("14:00", "17:30", "Afternoon Flow")
+    COMMUNITY_EXPRESSION = ("17:30", "19:30", "Community / Expression")
+    WINDDOWN_REFLECTION = ("19:30", "22:00", "Winddown / Reflection")
+
+    def start_time(self):
+        return self.value[0]
+
+    def end_time(self):
+        return self.value[1]
+
+    def label(self):
+        return self.value[2]

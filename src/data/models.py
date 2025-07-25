@@ -22,6 +22,7 @@ class LogEntry(Base):
     embedding = Column(BLOB, nullable=True)
     metadta = Column(JSON, nullable=True)
     evnttrigger = Column(String, nullable=True)
+    daily_routine = Column(Integer, nullable=True)
 
 class MoodSwing(Base):
     __tablename__ = "swing_table"

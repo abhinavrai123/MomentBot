@@ -4,8 +4,12 @@ from src.data.models import LogEntry
 from src.data.session import get_session  # async session provider
 from datetime import datetime
 
+from src.logic.utils.time_utils import get_daily_routine_index
+
+
 async def store_log_entry(user_id: int, log_type: str, energy_score: int, comment: str, evnttrigger: str, timestamp: datetime ,cognitive_state: str):
     """Persist log entry to database using AsyncSession."""
+    routine_index = get_daily_routine_index(timestamp)
     async with get_session() as session:
         try:
             entry = LogEntry(
@@ -15,7 +19,8 @@ async def store_log_entry(user_id: int, log_type: str, energy_score: int, commen
                 comment=comment,
                 evnttrigger=evnttrigger,
                 log_time=timestamp,
-                cog_state=cognitive_state
+                cog_state=cognitive_state,
+                daily_routine = routine_index
             )
             session.add(entry)
             await session.commit()
@@ -27,6 +32,7 @@ async def store_log_entry(user_id: int, log_type: str, energy_score: int, commen
 
 async def store_journal_entry(user_id: int, log_type: str, energy_score: int, comment: str, timestamp: datetime):
     """Persist journal entry to database using AsyncSession."""
+    routine_index = get_daily_routine_index(timestamp)
     async with get_session() as session:
         try:
             entry = LogEntry(
@@ -35,7 +41,8 @@ async def store_journal_entry(user_id: int, log_type: str, energy_score: int, co
                 energy_score=energy_score,
                 comment=comment,
                 evnttrigger=None,
-                log_time=timestamp
+                log_time=timestamp,
+                daily_routine = routine_index
             )
             session.add(entry)
             await session.commit()

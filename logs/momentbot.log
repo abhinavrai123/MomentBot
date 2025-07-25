@@ -1815,3 +1815,627 @@ TypeError: store_log_entry() got an unexpected keyword argument 'cognitive_state
 [2025-07-25 09:55:57] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
 [2025-07-25 09:55:57] [INFO] [telegram.ext.Application]: Application is stopping. This might take a moment.
 [2025-07-25 09:55:57] [INFO] [telegram.ext.Application]: Application.stop() complete
+[2025-07-25 10:20:31] [INFO] [__main__]: MomentBot starting...
+[2025-07-25 10:20:32] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getMe "HTTP/1.1 200 OK"
+[2025-07-25 10:20:32] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/deleteWebhook "HTTP/1.1 200 OK"
+[2025-07-25 10:20:32] [INFO] [telegram.ext.Application]: Application started
+[2025-07-25 10:20:42] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:20:43] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:20:45] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:20:45] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:20:46] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:20:47] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:20:48] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:20:49] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:20:52] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:20:52] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:20:54] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:20:54] [ERROR] [telegram.ext.Application]: No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/telegram/ext/_application.py", line 1234, in process_update
+    await coroutine
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/telegram/ext/_conversationhandler.py", line 857, in handle_update
+    new_state: object = await handler.handle_update(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/telegram/ext/_basehandler.py", line 157, in handle_update
+    return await self.callback(update, context)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/dev/log_handler.py", line 88, in handle_user_input
+    return await proceed_to_next_step(update, context)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/dev/log_handler.py", line 106, in proceed_to_next_step
+    return await store_and_finalize(update, context)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/dev/log_handler.py", line 120, in store_and_finalize
+    await store_log_entry(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/src/data/service.py", line 12, in store_log_entry
+    routine_index = get_daily_routine_index(timestamp)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/src/logic/utils/time_utils.py", line 10, in get_daily_routine_index
+    (time(10, 0), time(14, 0), DailyRoutine.FOCUSED_RESTED),
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/enum.py", line 437, in __getattr__
+    raise AttributeError(name) from None
+AttributeError: FOCUSED_RESTED. Did you mean: 'FOCUSED_AND_RESTED'?
+[2025-07-25 10:21:04] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:21:14] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:21:25] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:21:29] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:21:29] [INFO] [telegram.ext.Application]: Application is stopping. This might take a moment.
+[2025-07-25 10:21:29] [INFO] [telegram.ext.Application]: Application.stop() complete
+[2025-07-25 10:21:30] [INFO] [__main__]: MomentBot starting...
+[2025-07-25 10:21:31] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getMe "HTTP/1.1 200 OK"
+[2025-07-25 10:21:31] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/deleteWebhook "HTTP/1.1 200 OK"
+[2025-07-25 10:21:31] [INFO] [telegram.ext.Application]: Application started
+[2025-07-25 10:21:33] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:21:33] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:21:36] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:21:36] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:21:37] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:21:37] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:21:38] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:21:38] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:21:39] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:21:40] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:21:40] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:21:41] [ERROR] [telegram.ext.Application]: No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1971, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 919, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/dialects/sqlite/aiosqlite.py", line 146, in execute
+    self._adapt_connection._handle_exception(error)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/dialects/sqlite/aiosqlite.py", line 298, in _handle_exception
+    raise error
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/dialects/sqlite/aiosqlite.py", line 128, in execute
+    self.await_(_cursor.execute(operation, parameters))
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 131, in await_only
+    return current.driver.switch(awaitable)  # type: ignore[no-any-return]
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 196, in greenlet_spawn
+    value = await result
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/aiosqlite/cursor.py", line 40, in execute
+    await self._execute(self._cursor.execute, sql, parameters)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/aiosqlite/cursor.py", line 32, in _execute
+    return await self._conn._execute(fn, *args, **kwargs)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/aiosqlite/core.py", line 122, in _execute
+    return await future
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/aiosqlite/core.py", line 105, in run
+    result = function()
+sqlite3.OperationalError: table log_table has no column named daily_routine
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/telegram/ext/_application.py", line 1234, in process_update
+    await coroutine
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/telegram/ext/_conversationhandler.py", line 857, in handle_update
+    new_state: object = await handler.handle_update(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/telegram/ext/_basehandler.py", line 157, in handle_update
+    return await self.callback(update, context)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/dev/log_handler.py", line 88, in handle_user_input
+    return await proceed_to_next_step(update, context)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/dev/log_handler.py", line 106, in proceed_to_next_step
+    return await store_and_finalize(update, context)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/dev/log_handler.py", line 120, in store_and_finalize
+    await store_log_entry(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/src/data/service.py", line 29, in store_log_entry
+    raise e
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/src/data/service.py", line 26, in store_log_entry
+    await session.commit()
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/ext/asyncio/session.py", line 1009, in commit
+    await greenlet_spawn(self.sync_session.commit)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 203, in greenlet_spawn
+    result = context.switch(value)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1972, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1257, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1232, in _prepare_impl
+    self.session.flush()
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4296, in flush
+    self._flush(objects)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4431, in _flush
+    with util.safe_reraise():
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4392, in _flush
+    flush_context.execute()
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/orm/persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1422, in execute
+    return meth(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 514, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1644, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1850, in _execute_context
+    return self._exec_single_context(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1990, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2357, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1971, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 919, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/dialects/sqlite/aiosqlite.py", line 146, in execute
+    self._adapt_connection._handle_exception(error)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/dialects/sqlite/aiosqlite.py", line 298, in _handle_exception
+    raise error
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/dialects/sqlite/aiosqlite.py", line 128, in execute
+    self.await_(_cursor.execute(operation, parameters))
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 131, in await_only
+    return current.driver.switch(awaitable)  # type: ignore[no-any-return]
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 196, in greenlet_spawn
+    value = await result
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/aiosqlite/cursor.py", line 40, in execute
+    await self._execute(self._cursor.execute, sql, parameters)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/aiosqlite/cursor.py", line 32, in _execute
+    return await self._conn._execute(fn, *args, **kwargs)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/aiosqlite/core.py", line 122, in _execute
+    return await future
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/aiosqlite/core.py", line 105, in run
+    result = function()
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) table log_table has no column named daily_routine
+[SQL: INSERT INTO log_table (user_id, log_type, cog_state, comment, energy_score, emotion_label, archetype, tags, log_time, embedding, evnttrigger, daily_routine) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING log_id, log_day]
+[parameters: (7017034983, 'mood', 'obs', '1', 1, None, None, None, '2025-07-25 04:51:40.995685', None, '1', -1)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+[2025-07-25 10:21:51] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:22:01] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:22:11] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:22:21] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:22:31] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:22:42] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:22:52] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:23:02] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:23:12] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:23:22] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:23:33] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:23:43] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:23:53] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:24:02] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:24:02] [INFO] [telegram.ext.Application]: Application is stopping. This might take a moment.
+[2025-07-25 10:24:02] [INFO] [telegram.ext.Application]: Application.stop() complete
+[2025-07-25 10:27:08] [INFO] [__main__]: MomentBot starting...
+[2025-07-25 10:27:09] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getMe "HTTP/1.1 200 OK"
+[2025-07-25 10:27:09] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/deleteWebhook "HTTP/1.1 200 OK"
+[2025-07-25 10:27:09] [INFO] [telegram.ext.Application]: Application started
+[2025-07-25 10:27:12] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:27:12] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:27:14] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:27:14] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:27:15] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:27:16] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:27:16] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:27:17] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:27:19] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:27:19] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:27:20] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:27:20] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:27:30] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:27:35] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:27:35] [INFO] [telegram.ext.Application]: Application is stopping. This might take a moment.
+[2025-07-25 10:27:35] [INFO] [telegram.ext.Application]: Application.stop() complete
+[2025-07-25 10:28:08] [INFO] [__main__]: MomentBot starting...
+[2025-07-25 10:28:08] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getMe "HTTP/1.1 200 OK"
+[2025-07-25 10:28:08] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/deleteWebhook "HTTP/1.1 200 OK"
+[2025-07-25 10:28:08] [INFO] [telegram.ext.Application]: Application started
+[2025-07-25 10:28:15] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:28:16] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:28:17] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:28:17] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:28:18] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:28:18] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:28:19] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:28:19] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:28:21] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:28:21] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:28:22] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:28:22] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:28:32] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:28:43] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:28:53] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:29:03] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:29:13] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:29:23] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:29:34] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:29:44] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:29:54] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:30:04] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:30:14] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:30:23] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:30:23] [INFO] [telegram.ext.Application]: Application is stopping. This might take a moment.
+[2025-07-25 10:30:23] [INFO] [telegram.ext.Application]: Application.stop() complete
+[2025-07-25 10:30:24] [INFO] [__main__]: MomentBot starting...
+[2025-07-25 10:30:25] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getMe "HTTP/1.1 200 OK"
+[2025-07-25 10:30:25] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/deleteWebhook "HTTP/1.1 200 OK"
+[2025-07-25 10:30:25] [INFO] [telegram.ext.Application]: Application started
+[2025-07-25 10:30:28] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:30:28] [ERROR] [telegram.ext.Application]: No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/telegram/ext/_application.py", line 1234, in process_update
+    await coroutine
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/telegram/ext/_conversationhandler.py", line 857, in handle_update
+    new_state: object = await handler.handle_update(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/telegram/ext/_basehandler.py", line 157, in handle_update
+    return await self.callback(update, context)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/dev/log_handler.py", line 37, in start_log_flow
+    context.user_data["comment"] = clean_text_input(update.message.text.strip())
+AttributeError: 'NoneType' object has no attribute 'text'
+[2025-07-25 10:30:32] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:30:33] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:30:34] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:30:35] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:30:35] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:30:36] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:30:36] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:30:37] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:30:39] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:30:39] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:30:40] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:30:40] [ERROR] [telegram.ext.Application]: No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1971, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 919, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/dialects/sqlite/aiosqlite.py", line 146, in execute
+    self._adapt_connection._handle_exception(error)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/dialects/sqlite/aiosqlite.py", line 298, in _handle_exception
+    raise error
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/dialects/sqlite/aiosqlite.py", line 128, in execute
+    self.await_(_cursor.execute(operation, parameters))
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 131, in await_only
+    return current.driver.switch(awaitable)  # type: ignore[no-any-return]
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 196, in greenlet_spawn
+    value = await result
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/aiosqlite/cursor.py", line 40, in execute
+    await self._execute(self._cursor.execute, sql, parameters)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/aiosqlite/cursor.py", line 32, in _execute
+    return await self._conn._execute(fn, *args, **kwargs)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/aiosqlite/core.py", line 122, in _execute
+    return await future
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/aiosqlite/core.py", line 105, in run
+    result = function()
+sqlite3.InterfaceError: Error binding parameter 11 - probably unsupported type.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/telegram/ext/_application.py", line 1234, in process_update
+    await coroutine
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/telegram/ext/_conversationhandler.py", line 857, in handle_update
+    new_state: object = await handler.handle_update(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/telegram/ext/_basehandler.py", line 157, in handle_update
+    return await self.callback(update, context)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/dev/log_handler.py", line 88, in handle_user_input
+    return await proceed_to_next_step(update, context)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/dev/log_handler.py", line 106, in proceed_to_next_step
+    return await store_and_finalize(update, context)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/dev/log_handler.py", line 120, in store_and_finalize
+    await store_log_entry(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/src/data/service.py", line 28, in store_log_entry
+    raise e
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/src/data/service.py", line 25, in store_log_entry
+    await session.commit()
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/ext/asyncio/session.py", line 1009, in commit
+    await greenlet_spawn(self.sync_session.commit)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 203, in greenlet_spawn
+    result = context.switch(value)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1972, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1257, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1232, in _prepare_impl
+    self.session.flush()
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4296, in flush
+    self._flush(objects)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4431, in _flush
+    with util.safe_reraise():
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4392, in _flush
+    flush_context.execute()
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/orm/persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1422, in execute
+    return meth(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 514, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1644, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1850, in _execute_context
+    return self._exec_single_context(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1990, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2357, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1971, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 919, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/dialects/sqlite/aiosqlite.py", line 146, in execute
+    self._adapt_connection._handle_exception(error)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/dialects/sqlite/aiosqlite.py", line 298, in _handle_exception
+    raise error
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/dialects/sqlite/aiosqlite.py", line 128, in execute
+    self.await_(_cursor.execute(operation, parameters))
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 131, in await_only
+    return current.driver.switch(awaitable)  # type: ignore[no-any-return]
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 196, in greenlet_spawn
+    value = await result
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/aiosqlite/cursor.py", line 40, in execute
+    await self._execute(self._cursor.execute, sql, parameters)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/aiosqlite/cursor.py", line 32, in _execute
+    return await self._conn._execute(fn, *args, **kwargs)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/aiosqlite/core.py", line 122, in _execute
+    return await future
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/aiosqlite/core.py", line 105, in run
+    result = function()
+sqlalchemy.exc.InterfaceError: (sqlite3.InterfaceError) Error binding parameter 11 - probably unsupported type.
+[SQL: INSERT INTO log_table (user_id, log_type, cog_state, comment, energy_score, emotion_label, archetype, tags, log_time, embedding, evnttrigger, daily_routine) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING log_id, log_day]
+[parameters: (7017034983, 'mood', 'obs', '-', 2, None, None, None, '2025-07-25 05:00:40.029054', None, '-', ('05:00', '08:00', 'Foundation'))]
+(Background on this error at: https://sqlalche.me/e/20/rvf5)
+[2025-07-25 10:30:50] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:31:00] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:31:10] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:31:21] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:31:31] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:31:41] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:31:51] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:32:02] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:32:12] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:32:22] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:32:32] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:32:42] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:32:53] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:33:03] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:33:13] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:33:23] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:33:33] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:33:44] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:33:54] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:34:04] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:34:15] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:34:25] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:34:35] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:34:45] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:34:55] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:35:06] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:35:11] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:35:11] [INFO] [telegram.ext.Application]: Application is stopping. This might take a moment.
+[2025-07-25 10:35:11] [INFO] [telegram.ext.Application]: Application.stop() complete
+[2025-07-25 10:35:13] [INFO] [__main__]: MomentBot starting...
+[2025-07-25 10:35:13] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getMe "HTTP/1.1 200 OK"
+[2025-07-25 10:35:13] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/deleteWebhook "HTTP/1.1 200 OK"
+[2025-07-25 10:35:13] [INFO] [telegram.ext.Application]: Application started
+[2025-07-25 10:35:16] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:35:17] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:35:18] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:35:18] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:35:19] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:35:19] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:35:21] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:35:21] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:35:25] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:35:26] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:35:30] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:35:30] [ERROR] [telegram.ext.Application]: No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1971, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 919, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/dialects/sqlite/aiosqlite.py", line 146, in execute
+    self._adapt_connection._handle_exception(error)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/dialects/sqlite/aiosqlite.py", line 298, in _handle_exception
+    raise error
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/dialects/sqlite/aiosqlite.py", line 128, in execute
+    self.await_(_cursor.execute(operation, parameters))
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 131, in await_only
+    return current.driver.switch(awaitable)  # type: ignore[no-any-return]
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 196, in greenlet_spawn
+    value = await result
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/aiosqlite/cursor.py", line 40, in execute
+    await self._execute(self._cursor.execute, sql, parameters)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/aiosqlite/cursor.py", line 32, in _execute
+    return await self._conn._execute(fn, *args, **kwargs)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/aiosqlite/core.py", line 122, in _execute
+    return await future
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/aiosqlite/core.py", line 105, in run
+    result = function()
+sqlite3.InterfaceError: Error binding parameter 11 - probably unsupported type.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/telegram/ext/_application.py", line 1234, in process_update
+    await coroutine
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/telegram/ext/_conversationhandler.py", line 857, in handle_update
+    new_state: object = await handler.handle_update(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/telegram/ext/_basehandler.py", line 157, in handle_update
+    return await self.callback(update, context)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/dev/log_handler.py", line 88, in handle_user_input
+    return await proceed_to_next_step(update, context)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/dev/log_handler.py", line 106, in proceed_to_next_step
+    return await store_and_finalize(update, context)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/dev/log_handler.py", line 120, in store_and_finalize
+    await store_log_entry(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/src/data/service.py", line 29, in store_log_entry
+    raise e
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/src/data/service.py", line 26, in store_log_entry
+    await session.commit()
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/ext/asyncio/session.py", line 1009, in commit
+    await greenlet_spawn(self.sync_session.commit)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 203, in greenlet_spawn
+    result = context.switch(value)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1972, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1257, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1232, in _prepare_impl
+    self.session.flush()
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4296, in flush
+    self._flush(objects)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4431, in _flush
+    with util.safe_reraise():
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4392, in _flush
+    flush_context.execute()
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/orm/persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1422, in execute
+    return meth(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 514, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1644, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1850, in _execute_context
+    return self._exec_single_context(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1990, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2357, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1971, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 919, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/dialects/sqlite/aiosqlite.py", line 146, in execute
+    self._adapt_connection._handle_exception(error)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/dialects/sqlite/aiosqlite.py", line 298, in _handle_exception
+    raise error
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/dialects/sqlite/aiosqlite.py", line 128, in execute
+    self.await_(_cursor.execute(operation, parameters))
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 131, in await_only
+    return current.driver.switch(awaitable)  # type: ignore[no-any-return]
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 196, in greenlet_spawn
+    value = await result
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/aiosqlite/cursor.py", line 40, in execute
+    await self._execute(self._cursor.execute, sql, parameters)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/aiosqlite/cursor.py", line 32, in _execute
+    return await self._conn._execute(fn, *args, **kwargs)
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/aiosqlite/core.py", line 122, in _execute
+    return await future
+  File "/Users/abhinavrai/PycharmProjects/MomentBot/.venv/lib/python3.10/site-packages/aiosqlite/core.py", line 105, in run
+    result = function()
+sqlalchemy.exc.InterfaceError: (sqlite3.InterfaceError) Error binding parameter 11 - probably unsupported type.
+[SQL: INSERT INTO log_table (user_id, log_type, cog_state, comment, energy_score, emotion_label, archetype, tags, log_time, embedding, evnttrigger, daily_routine) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING log_id, log_day]
+[parameters: (7017034983, 'win', 'act', 'found bug', 2, None, None, None, '2025-07-25 05:05:30.195509', None, 'momentbot', ('10:00', '14:00', 'Focused and Rested'))]
+(Background on this error at: https://sqlalche.me/e/20/rvf5)
+[2025-07-25 10:35:40] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:35:50] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:36:00] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:36:10] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:36:21] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:36:31] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:36:41] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:36:51] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:37:01] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:37:12] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:37:22] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:37:32] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:37:42] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:37:52] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:38:02] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:38:13] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:38:23] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:38:33] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:38:43] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:38:53] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:39:04] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:39:14] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:39:24] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:39:34] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:39:44] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:39:55] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:40:05] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:40:15] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:40:25] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:40:35] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:40:45] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:40:56] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:41:06] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:41:16] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:41:26] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:41:36] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:41:46] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:41:57] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:42:07] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:42:17] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:42:27] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:42:37] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:42:48] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:42:58] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:43:08] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:43:18] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:43:28] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:43:38] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:43:49] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:43:59] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:44:09] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:44:19] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:44:29] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:44:40] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:44:50] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:45:00] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:45:10] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:45:20] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:45:31] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:45:41] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:45:51] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:45:58] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:45:58] [INFO] [telegram.ext.Application]: Application is stopping. This might take a moment.
+[2025-07-25 10:45:58] [INFO] [telegram.ext.Application]: Application.stop() complete
+[2025-07-25 10:46:00] [INFO] [__main__]: MomentBot starting...
+[2025-07-25 10:46:01] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getMe "HTTP/1.1 200 OK"
+[2025-07-25 10:46:01] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/deleteWebhook "HTTP/1.1 200 OK"
+[2025-07-25 10:46:01] [INFO] [telegram.ext.Application]: Application started
+[2025-07-25 10:46:11] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:46:21] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:46:22] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:46:23] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:46:23] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:46:24] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:46:25] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:46:27] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:46:27] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:46:30] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:46:30] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:46:35] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:46:36] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/sendMessage "HTTP/1.1 200 OK"
+[2025-07-25 10:46:45] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:46:50] [INFO] [httpx]: HTTP Request: POST https://api.telegram.org/bot7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU/getUpdates "HTTP/1.1 200 OK"
+[2025-07-25 10:46:50] [INFO] [telegram.ext.Application]: Application is stopping. This might take a moment.
+[2025-07-25 10:46:50] [INFO] [telegram.ext.Application]: Application.stop() complete
