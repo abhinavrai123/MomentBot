@@ -4,3 +4,8 @@ tags and log_ids are stored as comma-separated strings for now (SQLite doesn't s
 embedding is a binary BLOB placeholder if you store vector encodings later (or can be base64-encoded string).
 All times are assumed to be stored in UTC. Always use datetime.utcnow() in Python.
 
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+Use the sys.path.append(...) line when running scripts from subfolders like scripts/ or dev/.
+It tells Python to treat the root project folder (MomentBot/) as the top of the import path tree.
+This makes all relative imports from src/ valid and avoids ModuleNotFoundError.
+

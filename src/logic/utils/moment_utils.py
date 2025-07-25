@@ -11,7 +11,7 @@ from src.config.constants import (
     EMOJI_MAP
 )
 import logging
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup,ReplyKeyboardMarkup
 
 
 # --- ENERGY UTILS ---
@@ -80,5 +80,15 @@ def build_energy_buttons() -> InlineKeyboardMarkup:
 
 def build_cognitive_state_buttons() -> InlineKeyboardMarkup:
     return build_choice_buttons([cs.value for cs in CognitiveState])
+
+#REPLY KEYBOARD
+def build_reply_keyboard(options: list[str], one_time: bool = True) -> ReplyKeyboardMarkup:
+    """Returns a simple ReplyKeyboardMarkup with each option on its own row."""
+    keyboard = [[opt] for opt in options]
+    return ReplyKeyboardMarkup(
+        keyboard=keyboard,
+        resize_keyboard=True,
+        one_time_keyboard=one_time
+    )
 
 

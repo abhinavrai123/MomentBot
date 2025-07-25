@@ -26,6 +26,10 @@ class LogType(Enum):
     LEARNING = "need_learning"
     GRATITUDE = "gratitude"
 
+    @classmethod
+    def has_value(cls, value):
+        return value in (item.value for item in cls)
+
 # --- Cognitive States ---
 class CognitiveState(Enum):
     ACT = "act"

@@ -8,7 +8,7 @@ from .database import Base
 class LogEntry(Base):
     __tablename__ = "log_table"
 
-    log_id = Column(String, primary_key=True)
+    log_id = Column(Integer, primary_key=True, autoincrement=True)
     user_id = Column(Integer, nullable=False)
     log_type = Column(String, nullable=False)             # log, mood, acc, thank, etc.
     cog_state = Column(String, nullable=True)             # Act, Obs, Crt, Mtn

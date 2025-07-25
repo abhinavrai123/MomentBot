@@ -1,17 +1,11 @@
-# src/data/database.py
+from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
+from sqlalchemy.orm import sessionmaker, declarative_base
+DB_URL = "sqlite+aiosqlite:////Users/abhinavrai/PycharmProjects/MomentBot/data/data.db"
 
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, scoped_session, declarative_base
-import os
-
-# Load from .env or fallback
-DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///data/data.db")
-
-engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
-SessionLocal = scoped_session(sessionmaker(bind=engine, autocommit=False, autoflush=False))
 
 Base = declarative_base()
+async_engine = create_async_engine(DB_URL, echo=True)
 
-def init_db():
-    from .models import LogEntry, MoodSwing
-    Base.metadata.create_all(bind=engine)
+async def init_db():
+    async with async_engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
