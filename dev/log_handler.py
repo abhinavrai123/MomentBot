@@ -34,6 +34,8 @@ def get_flow(context):
 async def start_log_flow(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # Default flow from free-text input
     context.user_data.clear()
+    raw_text = update.message.text.strip()
+    context.user_data["raw_text"] = raw_text
     context.user_data["flow_type"] = MOMENT
     context.user_data["comment"] = clean_text_input(update.message.text.strip())
     context.user_data["step"] = "select_log_type"
@@ -125,10 +127,10 @@ async def store_and_finalize(update: Update, context: ContextTypes.DEFAULT_TYPE)
             cognitive_state=context.user_data.get("cognitive_state"),
             comment=context.user_data.get("comment"),
             evnttrigger=context.user_data.get("evnttrigger"),
-            timestamp=timestamp
+            timestamp=timestamp,
+            raw_text=context.user_data.get("raw_text")
         )
-        # if context.user_data["log_type"] == "mood":
-        #     await track_mood_swing(update, context)
+
         context.user_data["step"] = "end_flow"
         return await proceed_to_next_step(update, context)
 

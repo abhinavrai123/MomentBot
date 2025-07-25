@@ -16,7 +16,8 @@ async def store_log_entry(
     comment: str,
     evnttrigger: str,
     timestamp: datetime,
-    cognitive_state: str
+    cognitive_state: str,
+    raw_text: str
 ):
     """
     Store a general log entry and immediately run mood swing detection.
@@ -36,6 +37,7 @@ async def store_log_entry(
                 log_time=timestamp,
                 cog_state=cognitive_state,
                 daily_routine=routine_index,
+                raw_text=raw_text
             )
             session.add(new_entry)
             await session.commit()

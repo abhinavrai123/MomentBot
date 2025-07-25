@@ -45,10 +45,6 @@ def detect_swings(logs):
 
 
 def compute_adjusted_volatility(swing_logs):
-    """
-    Compute adjusted volatility = (weighted_energy * time) / transitions
-    Weighted by ENERGY_WEIGHTS, time is in minutes.
-    """
     total_weighted_energy = 0
     total_transitions = len(swing_logs) - 1
     if total_transitions == 0:
@@ -56,12 +52,22 @@ def compute_adjusted_volatility(swing_logs):
 
     for i in range(len(swing_logs) - 1):
         a, b = swing_logs[i], swing_logs[i + 1]
-        minutes = (b.log_time - a.log_time).total_seconds() / 60
+
+        # Convert both to same tz-aware datetime
+        a_time = a.log_time
+        b_time = b.log_time
+
+        # If naive, localize them to LOCAL_TIMEZONE
+        if a_time.tzinfo is None:
+            a_time = a_time.replace(tzinfo=LOCAL_TIMEZONE)
+        if b_time.tzinfo is None:
+            b_time = b_time.replace(tzinfo=LOCAL_TIMEZONE)
+
+        minutes = (b_time - a_time).total_seconds() / 60
         energy = abs(ENERGY_WEIGHTS.get(a.energy_score, 0))
         total_weighted_energy += energy * minutes
 
-    return round(total_weighted_energy / total_transitions, 2)
-
+            return round((total_weighted_energy / 60) * 100, 2)
 
 def determine_direction(energy_path):
     ups = sum(1 for e in energy_path if "+" in e)
@@ -93,14 +99,14 @@ def create_mood_swing_entry(user_id: int, swing_logs: list) -> MoodSwing:
     end = swing_logs[-1].log_time.astimezone(LOCAL_TIMEZONE)
     duration = int((end - start).total_seconds() / 60)
 
-    energy_path = " -> ".join(parse_energy_label(log.energy_score) for log in swing_logs)
+    energy_path = " , ".join(parse_energy_label(log.energy_score) for log in swing_logs)
     energy_scores = [log.energy_score for log in swing_logs if log.energy_score is not None]
 
     max_intensity = max(abs(s) for s in energy_scores)
     swing_volatility = len([s for s in energy_scores if s != 0])
     avg_energy = round(sum(energy_scores) / len(energy_scores), 2)
     adjusted_vol = compute_adjusted_volatility(swing_logs)
-    direction = determine_direction(energy_path.split(" -> "))
+    direction = determine_direction(energy_path.split(" , "))
     transitions = len(swing_logs) - 1
 
     return MoodSwing(
