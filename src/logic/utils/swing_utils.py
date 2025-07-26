@@ -1,7 +1,12 @@
 from datetime import datetime
-from src.config.constants import LOCAL_TIMEZONE
-from src.data.models import MoodSwing
 from uuid import uuid4
+
+from sqlalchemy.exc import SQLAlchemyError
+from sqlalchemy.future import select
+
+from src.config.constants import LOCAL_TIMEZONE
+from src.data.models import LogEntry, MoodSwing
+from src.data.session import get_session
 
 ENERGY_WEIGHTS = {
     -2: 2,
@@ -10,13 +15,6 @@ ENERGY_WEIGHTS = {
      1: 1,
      2: 2
 }
-
-from sqlalchemy.exc import SQLAlchemyError
-from sqlalchemy.future import select
-
-from src.data.models import LogEntry, MoodSwing
-from src.data.session import get_session
-from src.logic.utils.swing_utils import detect_swings, create_mood_swing_entry
 
 
 async def process_mood_swings():
@@ -37,7 +35,16 @@ async def process_mood_swings():
             swings = detect_swings(unassigned_logs)
 
             for swing_logs in swings:
-                swing_entry = create_mood_swing_entry(swing_logs[0].user_id, swing_logs)
+                swing_id = f"{datetime.now(LOCAL_TIMEZONE).strftime('%Y%m%d%H%M')}-{uuid4().hex[:6]}"
+                swing_entry = create_mood_swing_entry(
+                    user_id=swing_logs[0].user_id,
+                    swing_logs=swing_logs,
+                    swing_id=swing_id
+                )
+
+                for log in swing_logs:
+                    log.swing_id = swing_id
+
                 session.add(swing_entry)
 
             if swings:
@@ -47,13 +54,40 @@ async def process_mood_swings():
             await session.rollback()
             raise e
 
+
+def detect_swings(logs: list[LogEntry]) -> list[list[LogEntry]]:
+    swings = []
+    current_swing = []
+    last_was_zero = False
+
+    for log in logs:
+        if log.energy_score is None:
+            continue
+
+        if log.energy_score == 0:
+            if current_swing:
+                current_swing.append(log)
+                if len(current_swing) > 2:
+                    swings.append(current_swing[:])
+                current_swing = []
+            last_was_zero = True
+        else:
+            if last_was_zero:
+                # Start of a new swing
+                current_swing = [logs[logs.index(log) - 1]]  # Include the preceding 0
+                last_was_zero = False
+            if current_swing is not None:
+                current_swing.append(log)
+
+    return swings
+
 def compute_adjusted_volatility(swing_logs):
     total_weighted_energy = 0
     total_transitions = len(swing_logs) - 1
     if total_transitions == 0:
         return 0.0
 
-    for i in range(len(swing_logs) - 1):
+    for i in range(total_transitions):
         a, b = swing_logs[i], swing_logs[i + 1]
 
         a_time = a.log_time
@@ -70,7 +104,8 @@ def compute_adjusted_volatility(swing_logs):
 
     return round(total_weighted_energy, 2)
 
-def determine_direction(energy_path):
+
+def determine_direction(energy_path: list[str]) -> str:
     ups = sum(1 for e in energy_path if "+" in e)
     downs = sum(1 for e in energy_path if "-" in e)
 
@@ -82,19 +117,19 @@ def determine_direction(energy_path):
         return "mixed"
 
 
-def parse_energy_label(score):
-    match score:
-        case 2: return "++"
-        case 1: return "+"
-        case -1: return "-"
-        case -2: return "--"
-        case 0: return "0"
-        case _: return "?"
+def parse_energy_label(score: int) -> str:
+    return {
+        2: "++",
+        1: "+",
+        0: "0",
+        -1: "-",
+        -2: "--"
+    }.get(score, "?")
 
-def create_mood_swing_entry(user_id: int, swing_logs: list) -> MoodSwing:
+
+def create_mood_swing_entry(user_id: int, swing_logs: list[LogEntry], swing_id: str) -> MoodSwing:
     """
     Constructs a MoodSwing ORM object from a list of log entries (forming a swing).
-    All time-based calculations are done in LOCAL_TIMEZONE.
     """
     start = swing_logs[0].log_time.astimezone(LOCAL_TIMEZONE)
     end = swing_logs[-1].log_time.astimezone(LOCAL_TIMEZONE)
@@ -111,7 +146,7 @@ def create_mood_swing_entry(user_id: int, swing_logs: list) -> MoodSwing:
     transitions = len(swing_logs) - 1
 
     return MoodSwing(
-        swing_id=str(uuid4()),
+        swing_id=swing_id,
         user_id=user_id,
         start_time=start,
         end_time=end,

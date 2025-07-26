@@ -25,6 +25,7 @@ class LogEntry(Base):
     evnttrigger = Column(String, nullable=True)
     daily_routine = Column(Integer, nullable=True)
     raw_text = Column(String, nullable=True)
+    swing_id = Column(String, nullable=True)
 
 class MoodSwing(Base):
     __tablename__ = "swing_table"
