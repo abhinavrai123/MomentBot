@@ -1,7 +1,7 @@
 # src/scheduler/scheduler.py
 
 import asyncio
-from datetime import datetime
+from datetime import datetime, timezone
 from src.logic.utils.data_utils import get_all_user_ids
 from src.config.constants import LOCAL_TIMEZONE, DailyRoutine, WIN_GRATITUDE_CHECK_TIMES
 from src.logic.utils.time_prompt_utils import get_routine_time_range, has_logs_in_range
@@ -32,10 +32,13 @@ async def run_scheduler(send_prompt_fn):
 
         # Check win + gratitude
         if current_time_str in WIN_GRATITUDE_CHECK_TIMES:
-            start_of_day = now.replace(hour=0, minute=0, second=0, microsecond=0)
+            start_of_day_local = now.replace(hour=0, minute=0, second=0, microsecond=0)
+            start_of_day_utc = start_of_day_local.astimezone(timezone.utc)
+            now_utc = now.astimezone(timezone.utc)
+
             for user_id in user_ids:
-                has_win = await has_logs_in_range(user_id, ["win"], start_of_day, now)
-                has_gratitude = await has_logs_in_range(user_id, ["gratitude"], start_of_day, now)
+                has_win = await has_logs_in_range(user_id, ["win"], start_of_day_utc, now_utc)
+                has_gratitude = await has_logs_in_range(user_id, ["gratitude"], start_of_day_utc, now_utc)
 
                 if not has_win or not has_gratitude:
                     print(f"📩 [PROMPT] {user_id} missing win/gratitude")

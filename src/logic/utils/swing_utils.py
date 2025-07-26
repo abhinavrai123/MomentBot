@@ -11,37 +11,41 @@ ENERGY_WEIGHTS = {
      2: 2
 }
 
+from sqlalchemy.exc import SQLAlchemyError
+from sqlalchemy.future import select
 
-def detect_swings(logs):
+from src.data.models import LogEntry, MoodSwing
+from src.data.session import get_session
+from src.logic.utils.swing_utils import detect_swings, create_mood_swing_entry
+
+
+async def process_mood_swings():
     """
-    Given a list of logs (sorted by time), detect energy swings from 0 → ... → 0.
-    Only valid if it starts and ends on 0.
-    Ignores 0 → 0 sequences.
+    Detects mood swings from unprocessed logs and stores them.
+    Should be run as a scheduled task.
     """
-    swings = []
-    current_swing = []
-    in_swing = False
+    async with get_session() as session:
+        try:
+            result = await session.execute(
+                select(LogEntry)
+                .where(LogEntry.energy_score.isnot(None))
+                .order_by(LogEntry.user_id, LogEntry.log_time)
+            )
+            all_logs = result.scalars().all()
+            unassigned_logs = [log for log in all_logs if log.swing_id is None]
 
-    for log in logs:
-        score = log.energy_score
-        if score is None:
-            continue
+            swings = detect_swings(unassigned_logs)
 
-        if score == 0:
-            if in_swing:
-                current_swing.append(log)
-                swings.append(current_swing)
-                current_swing = []
-                in_swing = False
-            else:
-                continue  # Ignore 0 → 0
-        else:
-            if not in_swing:
-                in_swing = True
-                current_swing = []
-            current_swing.append(log)
+            for swing_logs in swings:
+                swing_entry = create_mood_swing_entry(swing_logs[0].user_id, swing_logs)
+                session.add(swing_entry)
 
-    return swings
+            if swings:
+                await session.commit()
+
+        except SQLAlchemyError as e:
+            await session.rollback()
+            raise e
 
 def compute_adjusted_volatility(swing_logs):
     total_weighted_energy = 0

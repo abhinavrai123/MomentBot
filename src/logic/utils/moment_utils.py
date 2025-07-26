@@ -1,5 +1,5 @@
 # Task utilities
-from datetime import datetime
+from datetime import datetime,timezone
 from zoneinfo import ZoneInfo
 from src.config.constants import (
     ENERGY_LEVELS,
@@ -33,7 +33,7 @@ def format_energy_label(symbol: str) -> str:
 # --- TIME UTILS ---
 
 def get_current_timestamp(tz_name: str = DEFAULT_TIMEZONE) -> str:
-    return datetime.now(ZoneInfo(tz_name)).isoformat()
+    return datetime.now(timezone.utc)
 
 
 # --- LOGIC UTILS ---
