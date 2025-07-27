@@ -3,21 +3,17 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 email = "abhinavrai123@gmail.com"
 
-def send_email(to_email: str, subject: str, body: str):
+def send_email_html(to_email: str, subject: str, body: str):
     from_email = email
     password = "dmvg jxag zimk hcwo"  # Use an app-specific password from Gmail
 
     # Create message
-    msg = MIMEMultipart("alternative")
+    msg = MIMEMultipart()
     msg["From"] = from_email
     msg["To"] = to_email
     msg["Subject"] = subject
 
-    text_part = MIMEText(plain_text, "plain")
-    html_part = MIMEText(html_content, "html")
-
-    msg.attach(text_part)
-    msg.attach(html_part)
+    msg.attach(MIMEText(body, "html"))  # Plaintext version
 
     try:
         # Connect to Gmail SMTP server

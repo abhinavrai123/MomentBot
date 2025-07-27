@@ -64,12 +64,12 @@ SWING_SUMMARY_TEMPLATE = "{index}. {path} (lasted {duration})"
 
 # --- Daily Routine ---
 class DailyRoutine(Enum):
-    FOUNDATION = ("05:00", "08:00", "Foundation")
-    LAUNCH = ("08:00", "10:00", "Launch")
-    FOCUSED_AND_RESTED = ("10:00", "14:00", "Focused and Rested")
-    AFTERNOON_FLOW = ("14:00", "17:30", "Afternoon Flow")
-    COMMUNITY_EXPRESSION = ("17:30", "19:30", "Community / Expression")
-    WINDDOWN_REFLECTION = ("19:30", "22:00", "Winddown / Reflection")
+    FOUNDATION = ("05:00", "08:00", "Foundation", 0)
+    LAUNCH = ("08:00", "10:00", "Launch", 1)
+    FOCUSED_AND_RESTED = ("10:00", "14:00", "Focused and Rested", 2)
+    AFTERNOON_FLOW = ("14:00", "17:30", "Afternoon Flow", 3)
+    COMMUNITY_EXPRESSION = ("17:30", "19:30", "Community / Expression", 4)
+    WINDDOWN_REFLECTION = ("19:30", "22:00", "Winddown / Reflection", 5)
 
     def start_time(self):
         return self.value[0]
@@ -80,5 +80,14 @@ class DailyRoutine(Enum):
     def label(self):
         return self.value[2]
 
+    def index(self):
+        return self.value[3]
+
+    @classmethod
+    def from_index(cls, idx: int):
+        for routine in cls:
+            if routine.index() == idx:
+                return routine
+        return None
 LOCAL_TIMEZONE = pytz.timezone("Asia/Kolkata")
 WIN_GRATITUDE_CHECK_TIMES = ["12:00", "16:00"]

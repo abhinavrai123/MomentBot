@@ -1,4 +1,4 @@
-# Entry point for the bot
+import this# Entry point for the bot
 import os
 from dotenv import load_dotenv
 
