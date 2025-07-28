@@ -63,6 +63,19 @@ EMOJI_MAP = {
 SWING_SUMMARY_TEMPLATE = "{index}. {path} (lasted {duration})"
 
 # --- Daily Routine ---
+DAY_FIXED_DAY_START = ("5:00")
+DAY_FIXED_BREAKFAST = ("9:00")
+DAY_FIXED_LUNCH = ("11:30")
+DAY_FIXED_TEA = ("15:30")
+DAY_FIXED_DINNER = ("19:30")
+DAY_FIXED_ACCOUNTS = ("19:00")
+DAY_FIXED_REFLECTION_HOUR = ("20:00")
+DAY_FIXED_NEXT_DAY_PREP = ("20:30")
+DAY_FIXED_DAY_END = ("10:00")
+WEEK_START = "SUNDAY"
+WEEK_END = "SATURDAY"
+WEEK_MID = "WEDNESDAY"
+
 class DailyRoutine(Enum):
     FOUNDATION = ("05:00", "08:00", "Foundation", 0)
     LAUNCH = ("08:00", "10:00", "Launch", 1)

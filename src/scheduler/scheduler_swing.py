@@ -11,7 +11,7 @@ def scheduler_swing(app):
         scheduler = AsyncIOScheduler()
         scheduler.add_job(
             process_mood_swings,
-            CronTrigger(hour=19, minute=55),  # 🕗 Every day at 7:55 PM local
+            CronTrigger(hour=22, minute=5),  # 🕗 Every day at 7:55 PM local
             name="Daily Mood Swing Processor"
         )
         scheduler.start()

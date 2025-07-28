@@ -7,6 +7,8 @@ from sqlalchemy.future import select
 from src.config.constants import LOCAL_TIMEZONE
 from src.data.models import LogEntry, MoodSwing
 from src.data.session import get_session
+from src.logic.utils.data_utils import group_logs_by_user, create_synthetic_zero
+from datetime import time
 
 ENERGY_WEIGHTS = {
     -2: 2,
@@ -16,11 +18,10 @@ ENERGY_WEIGHTS = {
      2: 2
 }
 
-
 async def process_mood_swings():
     """
-    Detects mood swings from unprocessed logs and stores them.
-    Should be run as a scheduled task.
+    Detect mood swings from unprocessed logs and store them.
+    Automatically adds a synthetic 0 at 10pm if needed to close swings.
     """
     async with get_session() as session:
         try:
@@ -31,8 +32,25 @@ async def process_mood_swings():
             )
             all_logs = result.scalars().all()
             unassigned_logs = [log for log in all_logs if log.swing_id is None]
+            grouped_logs = group_logs_by_user(unassigned_logs)
 
-            swings = detect_swings(unassigned_logs)
+            swings = []
+
+            for user_id, logs in grouped_logs.items():
+                logs = sorted(logs, key=lambda log: log.log_time)
+                if not logs:
+                    continue
+
+                last_log = logs[-1]
+                last_log_time_local = last_log.log_time.astimezone(LOCAL_TIMEZONE)
+                ten_pm = datetime.combine(last_log_time_local.date(), time(22, 0)).astimezone(LOCAL_TIMEZONE)
+
+                if last_log.energy_score != 0 and last_log_time_local < ten_pm:
+                    synthetic_log = create_synthetic_zero(user_id, last_log_time_local)
+                    logs.append(synthetic_log)
+
+                swings_for_user = detect_swings(logs)
+                swings.extend(swings_for_user)
 
             for swing_logs in swings:
                 swing_id = f"{datetime.now(LOCAL_TIMEZONE).strftime('%Y%m%d%H%M')}-{uuid4().hex[:6]}"
@@ -44,6 +62,7 @@ async def process_mood_swings():
 
                 for log in swing_logs:
                     log.swing_id = swing_id
+                    session.add(log)
 
                 session.add(swing_entry)
 
@@ -53,7 +72,6 @@ async def process_mood_swings():
         except SQLAlchemyError as e:
             await session.rollback()
             raise e
-
 
 def detect_swings(logs: list[LogEntry]) -> list[list[LogEntry]]:
     swings = []
@@ -104,7 +122,6 @@ def compute_adjusted_volatility(swing_logs):
 
     return round(total_weighted_energy, 2)
 
-
 def determine_direction(energy_path: list[str]) -> str:
     ups = sum(1 for e in energy_path if "+" in e)
     downs = sum(1 for e in energy_path if "-" in e)
@@ -116,7 +133,6 @@ def determine_direction(energy_path: list[str]) -> str:
     else:
         return "mixed"
 
-
 def parse_energy_label(score: int) -> str:
     return {
         2: "++",
@@ -125,7 +141,6 @@ def parse_energy_label(score: int) -> str:
         -1: "-",
         -2: "--"
     }.get(score, "?")
-
 
 def create_mood_swing_entry(user_id: int, swing_logs: list[LogEntry], swing_id: str) -> MoodSwing:
     """
