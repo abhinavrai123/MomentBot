@@ -1,17 +1,18 @@
 # src/scheduler/scheduler_swing.py
-
+import pytz
+from zoneinfo import ZoneInfo
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from apscheduler.triggers.cron import CronTrigger
 from src.logic.utils.swing_utils import process_mood_swings
 
 scheduler = AsyncIOScheduler()
-
+LOCAL_TIMEZONE = ZoneInfo("Asia/Kolkata")
 def scheduler_swing(app):
     async def post_init(application):
         scheduler = AsyncIOScheduler()
         scheduler.add_job(
             process_mood_swings,
-            CronTrigger(hour=22, minute=5),  # 🕗 Every day at 7:55 PM local
+            CronTrigger(hour=22, minute=5, timezone=LOCAL_TIMEZONE),
             name="Daily Mood Swing Processor"
         )
         scheduler.start()

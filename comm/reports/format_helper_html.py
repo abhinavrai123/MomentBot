@@ -229,12 +229,12 @@ def build_html_body(summary_date: str, section_1: str, section_2: str, section_3
       </div>
 
       <div class="section-wrapper">
-        <h2>📝 Section 1: Daily Journal</h2>
+        <h2>🏆 Section 1: Wins & Gratitude </h2>
         {section_1}
       </div>
 
       <div class="section-wrapper">
-        <h2>🏆 Section 2: Wins & Gratitude</h2>
+        <h2>📝 Section 2: Daily Journal </h2>
         {section_2}
       </div>
 

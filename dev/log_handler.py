@@ -60,20 +60,20 @@ async def handle_user_input(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if step == "select_log_type":
         if not LogType.has_value(user_input) or user_input == "cognitive_state":
-            await update.message.reply_text("Please select a valid option.")
-            return STEP_TO_STATE[step]
+            await update.message.reply_text("Input not recognized, ending session.")
+            return ConversationHandler.END
         context.user_data["log_type"] = user_input
 
     elif step == "ask_energy_score":
         if user_input not in ENERGY_LEVELS:
-            await update.message.reply_text("Please choose a valid energy level.")
-            return STEP_TO_STATE[step]
+            await update.message.reply_text("Input not recognized, ending session.")
+            return ConversationHandler.END
         context.user_data["energy_score"] = ENERGY_LEVELS[user_input]
 
     elif step == "select_cognitive_state":
         if user_input not in ["act", "obs", "crt", "mtn"]:
-            await update.message.reply_text("Please choose a valid cognitive state.")
-            return STEP_TO_STATE[step]
+            await update.message.reply_text("Input not recognized, ending session.")
+            return ConversationHandler.END
         context.user_data["cognitive_state"] = user_input
 
     elif step == "ask_comment":

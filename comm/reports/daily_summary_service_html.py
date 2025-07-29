@@ -49,12 +49,12 @@ async def send_manual_daily_summary_html(user_id: int, date_str: str):
 
         # Format sections
         section0 = summary_date
-        section1 = format_section_1_journal_html(logs)
         section2 = format_section_2_wins_gratitude_html(logs)
+        section1 = format_section_1_journal_html(logs)
         section3 = format_section_3_reflection_html(logs)
         section4 = format_section_4_moods_html(logs)
 
-        full_html = build_html_body(section0, section1, section2, section3, section4)
+        full_html = build_html_body(section0, section2, section1, section3, section4)
         subject = f"Daily Summary – {date_str}"
 
         # Send email

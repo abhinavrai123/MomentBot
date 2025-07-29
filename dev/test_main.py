@@ -6,8 +6,10 @@ from src.config.logging_config import setup_logging
 from dev.log_handler import *  # ✅ Your conversation handler
 from src.scheduler.scheduler import prompt_scheduler
 from src.scheduler.scheduler_swing import scheduler_swing
-
-BOT_TOKEN = "7164033808:AAF2GdT69JDedcrwNC25W9qGA1wTIwRBizU"
+import os
+from dotenv import load_dotenv
+load_dotenv()  # Load variables from .env into environment
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 
 def main():
     init_db()
