@@ -1,11 +1,17 @@
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+
+from dotenv import load_dotenv
+
 email = "abhinavrai123@gmail.com"
+import os
+import dotenv
+load_dotenv("/Users/abhinavrai/PycharmProjects/MomentBot/.env",override=True,verbose=True)
 
 def send_email_html(to_email: str, subject: str, body: str):
-    from_email = email
-    password = "dmvg jxag zimk hcwo"  # Use an app-specific password from Gmail
+    from_email = os.getenv("FROM_EMAIL")
+    password = os.getenv("PASSWORD")  # Use an app-specific password from Gmail
 
     # Create message
     msg = MIMEMultipart()
